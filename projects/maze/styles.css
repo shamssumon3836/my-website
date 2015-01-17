@@ -1,0 +1,20 @@
+#mainBar{
+    position: absolute;
+    margin-top: 0px;
+    margin-left: 0px;
+}
+
+#customBox{
+    position: absolute;
+    margin-top: 60px;
+    margin-left: 0px;
+    background-color: white;
+    visibility: hidden;
+    border: solid black 2px;
+}
+
+#gameBoard{
+    position: absolute;
+    margin-top: 60px;
+    margin-left: 0px;
+}
