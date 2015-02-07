@@ -62,7 +62,7 @@ function randn(n, mu, sigma)
 }
 function validate(n, mu, sigma)
 {
-    return n>0 && (Math.floor(n/1) == n) && sigma>0;
+    return !isNaN(n) && !isNaN(sigma) && !isNaN(mu) && n>0 && (Math.floor(n/1) == n) && sigma>0;
 }
 function onClickGenerate()
 {
