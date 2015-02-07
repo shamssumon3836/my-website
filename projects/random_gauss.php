@@ -13,34 +13,36 @@
 }
 #data_and_hist{
     position: absolute;
-    margin-top: 50px;
+    margin-top: 85px;
 }
 #data{
     position: absolute;
     margin-left: 0px;
-    margin-top: 60px;
+    margin-top: 95px;
 }
 #hist{
     position: absolute;
     margin-left: 200px;
-    margin-top: 0px;
+    margin-top: 10px;
     padding-top: 35px;
     width: 900px;
     height: 450px;
 }
 </style>
 <script>
-function RandomGauss()
+function RandomGauss(mu, sigma)
 {
    this.stored = null;
+   this.mu = mu || 0;
+   this.sigma = sigma || 1;
    this.next = function(){
        if (this.stored == null){
             var u1 = Math.random();
             var u2 = Math.random();
             var z1 = Math.sqrt(-2 * Math.log(u1)) * Math.cos(2* Math.PI * u2);
             var z2 = Math.sqrt(-2 * Math.log(u1)) * Math.sin(2* Math.PI * u2);
-            this.stored = z2;
-            return z1;
+            this.stored = z2 * sigma + mu;
+            return z1 * sigma + mu;
        }
        else{
            var z2 = this.stored;
@@ -50,23 +52,29 @@ function RandomGauss()
        }
    }
 }
-function randn(n)
+function randn(n, mu, sigma)
 {
     var ret = [];
-    var rg = new RandomGauss();
+    var rg = new RandomGauss(mu, sigma);
     for (var i=0; i<n; i++)
         ret.push(rg.next());
     return ret;
 }
+function validate(n, mu, sigma)
+{
+    return n>0 && (Math.floor(n/1) == n) && sigma>0;
+}
 function onClickGenerate()
 {
-    var n = document.getElementsByName("num")[0].value;
-    if (n > 0)
+    var n = parseInt(document.getElementsByName("num")[0].value);
+    var mu = parseFloat(document.getElementsByName("mu")[0].value);
+    var sigma = parseFloat(document.getElementsByName("sigma")[0].value);
+    if (validate(n, mu, sigma))
     {
-    n = Math.floor(n/1);
-    var rvs = randn(n);
-    generateTable(rvs, "data_table");
-    drawChart(rvs);
+        n = Math.floor(n/1);
+        var rvs = randn(n, mu, sigma);
+        generateTable(rvs, "data_table");
+        drawChart(rvs);
     }
 }
 function downloadFile(filename, text) {
@@ -116,6 +124,12 @@ function generateTable(array, id)
 <?include '../nav_bar.php'?>
 <div id="content">
 <div id="gauss_form">
+<p>
+Mu: <input name="mu" value=0>
+</p>
+<p>
+Sigma: <input name="sigma" value=1>
+</p>
 <p>
 Number of random gaussians to generate: <input name="num" type="number" min=1 max=1000 value=100>
 </p>
