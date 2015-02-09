@@ -16,7 +16,7 @@ table.layout_table{
 }
 
 a{
-    color:rgba(0,50,50,100);
+   color: rgba(0,50,50,100);
 }
 
 #projects_list{
@@ -66,7 +66,7 @@ a{
 }
 
 
-#navigation_bar a:link,a:visited
+#navigation_bar a:link, #navigation_bar a:visited
 {
 font-weight:bold;
 color:#FFFFFF;
