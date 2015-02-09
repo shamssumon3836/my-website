@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<? include '../head.php'; ?>
 <title>Random Gaussian Generator</title>
 <link rel="stylesheet" type="text/css" href="../styles.css">
 <style type="text/css">
@@ -71,7 +72,6 @@ function onClickGenerate()
     var sigma = parseFloat(document.getElementsByName("sigma")[0].value);
     if (validate(n, mu, sigma))
     {
-        n = Math.floor(n/1);
         var rvs = randn(n, mu, sigma);
         generateTable(rvs, "data_table");
         drawChart(rvs);
@@ -131,7 +131,7 @@ Mu: <input name="mu" value=0>
 Sigma: <input name="sigma" value=1>
 </p>
 <p>
-Number of random gaussians to generate: <input name="num" type="number" min=1 max=1000 value=100>
+Number of random gaussians to generate: <input id="n_error" name="num" type="number" min=1 max=1000 value=100>
 </p>
 <input type="submit" value="Generate" onclick="onClickGenerate();">
 </div>

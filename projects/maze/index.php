@@ -2,6 +2,7 @@
 <html>
     <head>
         <title>Maze game</title>
+        <? include '../../head.php'; ?>
 <link rel="stylesheet" type="text/css" href="../../styles.css">
 <link rel="stylesheet" type="text/css" href="./styles.css">
 <script src="http://crypto-js.googlecode.com/svn/tags/3.0.2/build/rollups/md5.js"></script>

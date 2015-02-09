@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<? include 'head.php'; ?>
 <link rel="stylesheet" type="text/css" href="styles.css">
 <meta charset="UTF-8">
 <title>About me</title>
@@ -39,7 +40,7 @@ if (!empty($description_err)){$description = "awesome";}
 $success = empty($name_error) && empty($description_error) &&  empty($email_error);
 if ($success)
 {
- $success = mail("admin@davidsternlicht.com" , "Greetings from $name" , "Name: $name\nEmail: $email\nThey thought I was $description\nComments:\n$comment");
+ $success = mail("d1618033@gmail.com" , "Greetings from $name" , "Name: $name\nEmail: $email\nThey thought I was $description\nComments:\n$comment");
  if ($success){
     $msg = "Successfully sent your details to me! I'll get back to you ASAP";
  }else{

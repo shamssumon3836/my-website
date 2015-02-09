@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<? include '../head.php'; ?>
 <title>Recurrence Relation Solver</title>
 <link rel="stylesheet" type="text/css" href="../styles.css">
 </head>

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<? include 'head.php'; ?>
 <title>Projects list</title>
 <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
