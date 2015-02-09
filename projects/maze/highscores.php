@@ -1,9 +1,5 @@
 <?php
-//$servername = "mysql.hostinger.co.il";
-$servername = "localhost";
-$username = "u364365495_admin";
-$password = "WtTk9uNX";
-$dbname = "u364365495_mzhs";
+include '../../config.php';
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
