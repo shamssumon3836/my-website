@@ -17,7 +17,8 @@
 <div id="content">
     <p id="debug"></p>
     <div id="mainBar">
-        <p><button onclick="custom()" type="button">Custom</button>
+        <p><button onclick="settings()" type="button">Settings</button>
+        <button onclick="custom()" type="button">Custom</button>
         &nbsp; <button onclick="beginGame()" type="button">Start</button>
 
         &nbsp; <b>Time:</b> <span id="time">02:00</span>
@@ -39,7 +40,13 @@
         &nbsp; <input onchange="onChangeCustomBox()" name="size" type="radio" id="small" checked="checked">Small</input></p>
         <p><button onclick="okButton()" id="okButton">Ok</button>&nbsp;<button onclick="cancelButton()" id="cancelButton">Cancel</button>&nbsp;<button onclick="resetToDefault()" id="resetButton">Reset</button></p>
     </div>
-
+    <div id="settingsBox">
+    <p>Controls:
+        <input onchange="onChangeSettingsBox()" name="controls" type="radio" id="regular" checked="checked">Regular</input>
+        &nbsp; <input onchange="onChangeCustomBox()" name="controls" type="radio" id="vim">Vim</input>
+    </p>
+    <p><button onclick="okButtonSettings()" id="okButtonSettings">Ok</button>&nbsp;<button onclick="cancelButtonSettings()" id="cancelButtonSettings">Cancel</button>&nbsp;<button onclick="resetToDefaultSettings()" id="resetButtonSettings">Reset</button></p>
+    </div>
     <div id="gameBoard">
         <canvas id="game" height="300" width="1350"/>
     </div>

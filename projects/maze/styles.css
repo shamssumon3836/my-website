@@ -13,6 +13,15 @@
     border: solid black 2px;
 }
 
+#settingsBox{
+    position: absolute;
+    margin-top: 60px;
+    margin-left: 0px;
+    background-color: white;
+    visibility: hidden;
+    border: solid black 2px;
+}
+
 #gameBoard{
     position: absolute;
     margin-top: 60px;

@@ -11,6 +11,7 @@ var c,ctx;
             var player;
             var game_active;
             var customized,custom_box_open,custom_box_changed;
+            var settings_box_open, settings_box_changed;
 
             var hs,user_name;
 
@@ -178,6 +179,8 @@ var c,ctx;
                 game_active=false;
                 custom_box_open=false;
                 custom_box_changed=false;
+                settings_box_open=false;
+                settings_box_changed=false;
                 maxheight=Math.floor(screen.availHeight/50)*50-300;
                 maxwidth=Math.floor(screen.availWidth/50)*50-300;
                 c.width=maxwidth;
@@ -239,18 +242,35 @@ var c,ctx;
             {
                 document.getElementById("game").style.visibility="visible";
                 document.getElementById("customBox").style.visibility="hidden";
+                document.getElementById("settingsBox").style.visibility="hidden";
                 document.getElementById("game").style.zIndex=2;
                 document.getElementById("customBox").style.zIndex=1;
+                document.getElementById("settingsBox").style.zIndex=1;
                 custom_box_open=false;
+                settings_box_open=false;
                 clearScreen();
             }
             function setCustomBoxVisible()
             {
                 document.getElementById("game").style.visibility="hidden";
+                document.getElementById("settingsBox").style.visibility="hidden";
                 document.getElementById("customBox").style.visibility="visible";
                 document.getElementById("game").style.zIndex=1;
+                document.getElementById("settingsBox").style.zIndex=1;
                 document.getElementById("customBox").style.zIndex=2;
                 custom_box_open=true;
+                settings_box_open=false;
+            }
+            function setSettingsBoxVisible()
+            {
+                document.getElementById("game").style.visibility="hidden";
+                document.getElementById("customBox").style.visibility="hidden";
+                document.getElementById("settingsBox").style.visibility="visible";
+                document.getElementById("game").style.zIndex=1;
+                document.getElementById("customBox").style.zIndex=1;
+                document.getElementById("settingsBox").style.zIndex=2;
+                settings_box_open=true;
+                custom_box_open=false;
             }
             function customOn()
             {
@@ -270,7 +290,7 @@ var c,ctx;
 
                 if (!custom_box_open)
                 {
-                    game_timer=false
+                    game_timer=false;
                     if (game_active)
                     {
                         game_active=false;
@@ -278,6 +298,25 @@ var c,ctx;
                     }
                     document.getElementById("time").innerHTML=changeTimeFormat(document.getElementById("custTime").value);
                     setCustomBoxVisible();
+
+                }
+                else
+                {
+                    setGameVisible();
+                }
+            }
+            function settings()
+            {
+
+                if (!settings_box_open)
+                {
+                    game_timer=false;
+                    if (game_active)
+                    {
+                        game_active=false;
+                        document.getElementById("score").innerHTML=0;
+                    }
+                    setSettingsBoxVisible();
 
                 }
                 else
@@ -295,6 +334,11 @@ var c,ctx;
                 document.getElementById("small").checked=true;
                 customOff();
                 custom_box_changed=false;
+            }
+            function resetToDefaultSettings()
+            {
+                document.getElementById("regular").checked=true;
+                settings_box_changed=false;
             }
             function onChangeCustomBox()
             {
@@ -342,6 +386,25 @@ var c,ctx;
                 custom_box_changed=false;
                 setGameVisible();
                 resetToDefault();
+            }
+            function okButtonSettings()
+            {
+                if (settings_box_changed)
+                {
+                    getSettingsParems();
+                    checkForSettingsParemErrors();
+                    setGameVisible();
+                }
+                else
+                {
+                    cancelButtonSettings();
+                }
+            }
+            function cancelButtonSettings()
+            {
+                custom_box_changed=false;
+                setGameVisible();
+                resetToDefaultSettings();
             }
             function beginGame()
             {
@@ -413,7 +476,7 @@ var c,ctx;
                 */
                 getscore(function(_user_name, _hs){
                 hs = _hs;
-                user_name = _user_name; 
+                user_name = _user_name;
                 document.getElementById("hs").innerHTML=escape(hs);
                 document.getElementById("user_name").innerHTML=escape(user_name);
                 });
