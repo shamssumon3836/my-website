@@ -12,7 +12,20 @@ var c,ctx;
             var game_active;
             var customized,custom_box_open,custom_box_changed;
             var settings_box_open, settings_box_changed;
+            var vim_controls = {
+                "Up": 75,
+                "Down": 74,
+                "Left": 72,
+                "Right": 76,
+            };
+            var regular_controls = {
+                "Up": 38,
+                "Down": 40,
+                "Left": 37,
+                "Right": 39,
 
+            };
+            var controls = regular_controls;
             var hs,user_name;
 
             function tile(row,col,bottom,right,set,marked)
@@ -82,7 +95,7 @@ var c,ctx;
 
                     switch (key)
                     {
-                        case 37:
+                        case controls.Left:
                         if (player.col>0)
                         {
                             if (!board[player.row][player.col-1].right)
@@ -92,7 +105,7 @@ var c,ctx;
                             }
                         }
                         break;
-                        case 38:
+                        case controls.Up:
                         if (player.row>0)
                         {
                             if (!board[player.row-1][player.col].bottom)
@@ -102,7 +115,7 @@ var c,ctx;
                             }
                         }
                         break;
-                        case 39:
+                        case controls.Right:
                         if (player.col<ncols-1)
                         {
                             if (!board[player.row][player.col].right)
@@ -141,7 +154,7 @@ var c,ctx;
                         }
 
                         break;
-                        case 40:
+                        case controls.Down:
                         if (player.row<nrows-1)
                         {
                             if (!board[player.row][player.col].bottom)
@@ -345,6 +358,10 @@ var c,ctx;
                 checkForParemErrors();
                 custom_box_changed=true;
             }
+            function onChangeSettingsBox()
+            {
+                settings_box_changed=true;
+            }
             function getParems()
             {
                 time=document.getElementById("custTime").value;
@@ -363,6 +380,17 @@ var c,ctx;
                 incR=document.getElementById("incR").value;
                 incC=document.getElementById("incC").value;
 
+            }
+            function getSettingsParems()
+            {
+                if (document.getElementById("regular").checked)
+                {
+                    controls = regular_controls;
+                }
+                else
+                {
+                    controls = vim_controls;
+                }
             }
             function okButton()
             {
@@ -392,7 +420,6 @@ var c,ctx;
                 if (settings_box_changed)
                 {
                     getSettingsParems();
-                    checkForSettingsParemErrors();
                     setGameVisible();
                 }
                 else
@@ -402,7 +429,7 @@ var c,ctx;
             }
             function cancelButtonSettings()
             {
-                custom_box_changed=false;
+                settings_box_changed=false;
                 setGameVisible();
                 resetToDefaultSettings();
             }
@@ -426,6 +453,7 @@ var c,ctx;
                 {
                     getParems();
                     checkForParemErrors();
+                    getSettingsParems();
                 }
                 document.getElementById("time").innerHTML=changeTimeFormat(time);
                 maze();

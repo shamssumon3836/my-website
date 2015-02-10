@@ -43,7 +43,7 @@
     <div id="settingsBox">
     <p>Controls:
         <input onchange="onChangeSettingsBox()" name="controls" type="radio" id="regular" checked="checked">Regular</input>
-        &nbsp; <input onchange="onChangeCustomBox()" name="controls" type="radio" id="vim">Vim</input>
+        &nbsp; <input onchange="onChangeSettingsBox()" name="controls" type="radio" id="vim">Vim</input>
     </p>
     <p><button onclick="okButtonSettings()" id="okButtonSettings">Ok</button>&nbsp;<button onclick="cancelButtonSettings()" id="cancelButtonSettings">Cancel</button>&nbsp;<button onclick="resetToDefaultSettings()" id="resetButtonSettings">Reset</button></p>
     </div>
