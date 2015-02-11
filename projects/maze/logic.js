@@ -297,8 +297,6 @@ function setSettingsBoxVisible()
     document.getElementById("game").style.zIndex=1;
     settings_form.open();
     custom_form.close();
-    settings_box_open=true;
-    custom_box_open=false;
 }
 function customOn()
 {
