@@ -31,8 +31,8 @@ function form(id){
     }
 }
 
-var custom_form = form("customBox");
-var settings_form = form("settingsBox");
+var custom_form;
+var settings_form;
 var customized,custom_box_changed;
 var settings_box_changed;
 var vim_controls = {
@@ -209,6 +209,8 @@ function onLoad()
 {
     c=document.getElementById("game");
     ctx=c.getContext("2d");
+    settings_form = new form("settingsBox");
+    custom_form = new form("customBox");
     checkForHS();
     player=new playerObj(0,0);
     customOff();
@@ -342,8 +344,8 @@ function settings()
             game_active=false;
             document.getElementById("score").innerHTML=0;
         }
+        document.getElementById("time").innerHTML=changeTimeFormat(document.getElementById("custTime").value);
         setSettingsBoxVisible();
-
     }
     else
     {
