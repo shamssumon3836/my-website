@@ -113,6 +113,7 @@ function generateTable(array, id)
         var options = {
           title: 'Histogram of data',
           legend: { position: 'none' },
+          colors: ['#009696'],
         };
 
         var chart = new google.visualization.Histogram(document.getElementById('hist'));
