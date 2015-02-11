@@ -81,10 +81,7 @@ return $res;
 function select_scores($conn)
 {
      $scores_array = get_scores_array($conn);
-     if (count($scores_array) == 0){echo ",;";}
-     foreach ($scores_array as $row){
-         echo htmlspecialchars($row["name"]) . "," . htmlspecialchars($row["score"]) . ";";
-     }
+     echo json_encode($scores_array);
 }
 create_highscores_table($conn);
 delete_non_top10($conn);
