@@ -30,7 +30,7 @@
 
     </div>
 
-    <div id="customBox">
+    <div class="form" id="customBox">
         <p>Time: <input  onchange="onChangeCustomBox()" type="number" min="0" id="custTime" value="120"> seconds</p>
         <p>Number of columns: <input  onchange="onChangeCustomBox()"  type="number" min="5" value="5" id="custNCols" value="120"></p>
         <p>Number of rows: <input  onchange="onChangeCustomBox()"  type="number" min="5" value="5" id="custNRows" value="120"></p>
@@ -40,7 +40,7 @@
         &nbsp; <input onchange="onChangeCustomBox()" name="size" type="radio" id="small" checked="checked">Small</input></p>
         <p><button onclick="okButton()" id="okButton">Ok</button>&nbsp;<button onclick="cancelButton()" id="cancelButton">Cancel</button>&nbsp;<button onclick="resetToDefault()" id="resetButton">Reset</button></p>
     </div>
-    <div id="settingsBox">
+    <div class="form" id="settingsBox">
     <p>Controls:
         <input onchange="onChangeSettingsBox()" name="controls" type="radio" id="regular" checked="checked">Regular</input>
         &nbsp; <input onchange="onChangeSettingsBox()" name="controls" type="radio" id="vim">Vim</input>
