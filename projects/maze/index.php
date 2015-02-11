@@ -17,17 +17,17 @@
 <div id="content">
     <p id="debug"></p>
     <div id="mainBar">
-        <p><button onclick="settings()" type="button">Settings</button>
-        <button onclick="custom()" type="button">Custom</button>
-        &nbsp; <button onclick="beginGame()" type="button">Start</button>
-
-        &nbsp; <b>Time:</b> <span id="time">02:00</span>
-        &nbsp; <b>Score:</b> <span id="score">0</span>
-
-        &nbsp; <span id="hs_text"><b>Highscore:</b> <span id="hs"></span> (<span id="user_name"></span>) </span>&nbsp; <b>Custom Mode:</b> <span id="custom_mode"></span>
-
-        </p>
-
+        <table>
+            <tr>
+                <td><button onclick="settings()" type="button">Settings</button></td>
+                <td><button onclick="custom()" type="button">Custom</button></td>
+                <td><button onclick="beginGame()" type="button">Start</button></td>
+                <td><b>Time:</b> <span id="time">02:00</span></td>
+                <td><b>Score:</b> <span id="score">0</span></td>
+                <td><span id="hs_text"><b>Highscore:</b> <span id="hs"></span> (<span id="user_name"></span>) </span></td>
+                <td><b>Custom Mode:</b> <span id="custom_mode"></span></td>
+            </tr>
+        </table>
     </div>
 
     <div class="form" id="customBox">
