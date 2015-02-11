@@ -505,11 +505,17 @@ var c,ctx;
                 getscore(function(_user_name, _hs){
                 hs = _hs;
                 user_name = _user_name;
-                document.getElementById("hs").innerHTML=escape(hs);
-                document.getElementById("user_name").innerHTML=escape(user_name);
+                document.getElementById("hs").innerHTML=escapeHtml(hs);
+                document.getElementById("user_name").innerHTML=escapeHtml(user_name);
                 });
 
             }
+            //taken from http://shebang.brandonmintern.com/foolproof-html-escaping-in-javascript/
+            function escapeHtml(str) {
+                var div = document.createElement('div');
+                div.appendChild(document.createTextNode(str));
+                return div.innerHTML;
+            };
             function gameOver()
             {
                 game_timer=false
@@ -518,8 +524,8 @@ var c,ctx;
                     user_name=prompt("You beat the previous highscore!\nPlease enter your user name:");
                     hs=score;
                     hash=CryptoJS.MD5(user_name + " " + hs + " #ecc>`r:fP");
-                    document.getElementById("hs").innerHTML=escape(hs);
-                    document.getElementById("user_name").innerHTML=escape(user_name);
+                    document.getElementById("hs").innerHTML=escapeHtml(hs);
+                    document.getElementById("user_name").innerHTML=escapeHtml(user_name);
                     localStorage.maze_hs=hs;
                     localStorage.maze_user_name=user_name;
                     submit_score(user_name, hs, hash);

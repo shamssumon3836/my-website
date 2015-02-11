@@ -12,11 +12,6 @@ if (!isset($_POST["name"])){
 else{
    $name = $_POST["name"];
 }
-if (!preg_match("/^[a-zA-Z0-9]+$/",$name))
-{
-   echo "Name contains non alphanumeric characters, removing them...<br/>";
-   $name = preg_replace("/[^a-zA-Z0-9]+/", "", $name);
-}
 if (!isset($_POST["score"])){
    die("Score was not chosen!");
    $score = 0;
