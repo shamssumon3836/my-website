@@ -3,7 +3,7 @@
 }
 
 table tr.odd td,tr.odd th {
-    background-color:rgba(0, 0, 255, 0.2);
+    background-color:rgba(0, 100, 100, 0.3);
 }
 
 table tr.even, tr.even th{
