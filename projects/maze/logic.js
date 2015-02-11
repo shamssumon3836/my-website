@@ -10,8 +10,31 @@ var score,bonus;
 var board;
 var player;
 var game_active;
-var customized,custom_box_open,custom_box_changed;
-var settings_box_open, settings_box_changed;
+
+function form(id){
+    this.id = id;
+    this._open = false;
+    this.changed = false;
+
+    this.open = function(){
+        document.getElementById(this.id).style.visibility="visible";
+        document.getElementById(this.id).style.zIndex=2;
+        this._open = true;
+    }
+    this.close = function(){
+        document.getElementById(this.id).style.visibility="hidden";
+        document.getElementById(this.id).style.zIndex=1;
+        this._open = false;
+    }
+    this.isOpen = function(){
+        return this._open;
+    }
+}
+
+var custom_form = form("customBox");
+var settings_form = form("settingsBox");
+var customized,custom_box_changed;
+var settings_box_changed;
 var vim_controls = {
     "Up": 75,
     "Down": 74,
@@ -190,9 +213,9 @@ function onLoad()
     player=new playerObj(0,0);
     customOff();
     game_active=false;
-    custom_box_open=false;
+    custom_form.close();
+    settings_form.close();
     custom_box_changed=false;
-    settings_box_open=false;
     settings_box_changed=false;
     maxheight=Math.floor(screen.availHeight/50)*50-300;
     maxwidth=Math.floor(screen.availWidth/50)*50-300;
@@ -254,34 +277,24 @@ function checkForParemErrors()
 function setGameVisible()
 {
     document.getElementById("game").style.visibility="visible";
-    document.getElementById("customBox").style.visibility="hidden";
-    document.getElementById("settingsBox").style.visibility="hidden";
     document.getElementById("game").style.zIndex=2;
-    document.getElementById("customBox").style.zIndex=1;
-    document.getElementById("settingsBox").style.zIndex=1;
-    custom_box_open=false;
-    settings_box_open=false;
+    custom_form.close();
+    settings_form.close();
     clearScreen();
 }
 function setCustomBoxVisible()
 {
     document.getElementById("game").style.visibility="hidden";
-    document.getElementById("settingsBox").style.visibility="hidden";
-    document.getElementById("customBox").style.visibility="visible";
     document.getElementById("game").style.zIndex=1;
-    document.getElementById("settingsBox").style.zIndex=1;
-    document.getElementById("customBox").style.zIndex=2;
-    custom_box_open=true;
-    settings_box_open=false;
+    custom_form.open();
+    settings_form.close();
 }
 function setSettingsBoxVisible()
 {
     document.getElementById("game").style.visibility="hidden";
-    document.getElementById("customBox").style.visibility="hidden";
-    document.getElementById("settingsBox").style.visibility="visible";
     document.getElementById("game").style.zIndex=1;
-    document.getElementById("customBox").style.zIndex=1;
-    document.getElementById("settingsBox").style.zIndex=2;
+    settings_form.open();
+    custom_form.close();
     settings_box_open=true;
     custom_box_open=false;
 }
@@ -301,7 +314,7 @@ function customOff()
 function custom()
 {
 
-    if (!custom_box_open)
+    if (!custom_form.isOpen())
     {
         game_timer=false;
         if (game_active)
@@ -321,7 +334,7 @@ function custom()
 function settings()
 {
 
-    if (!settings_box_open)
+    if (!settings_form.isOpen())
     {
         game_timer=false;
         if (game_active)
