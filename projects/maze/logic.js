@@ -11,28 +11,48 @@ var board;
 var player;
 var game_active;
 
-function form(id){
+function ViewableWidget(id){
     this.id = id;
     this._open = false;
     this.changed = false;
-
-    this.open = function(){
-        document.getElementById(this.id).style.visibility="visible";
-        document.getElementById(this.id).style.zIndex=2;
-        this._open = true;
-    }
-    this.close = function(){
-        document.getElementById(this.id).style.visibility="hidden";
-        document.getElementById(this.id).style.zIndex=1;
-        this._open = false;
-    }
-    this.isOpen = function(){
-        return this._open;
-    }
 }
+ViewableWidget.prototype.open = function(){
+    document.getElementById(this.id).style.visibility="visible";
+    document.getElementById(this.id).style.zIndex=2;
+    this._open = true;
+}
+ViewableWidget.prototype.close = function(){
+    document.getElementById(this.id).style.visibility="hidden";
+    document.getElementById(this.id).style.zIndex=1;
+    this._open = false;
+}
+ViewableWidget.prototype.isOpen = function(){
+    return this._open;
+}
+
+function Notebook(objs){
+    this.objs = objs;
+    this.open = function (name){
+        for (var key in this.objs)
+        {
+            var obj = this.objs[key];
+            if (key != name)
+            {
+                obj.close();
+            }
+            else
+            {
+                obj.open();
+            }
+        }
+    };
+}
+
 
 var custom_form;
 var settings_form;
+var highscores_block;
+var notebook;
 var customized,custom_box_changed;
 var settings_box_changed;
 var vim_controls = {
@@ -209,14 +229,29 @@ function onLoad()
 {
     c=document.getElementById("game");
     ctx=c.getContext("2d");
-    settings_form = new form("settingsBox");
-    custom_form = new form("customBox");
+    settings_form = new ViewableWidget("settingsBox");
+    custom_form = new ViewableWidget("customBox");
+    var gameWidget = new ViewableWidget("game");
+    gameWidget.open = function(){
+        ViewableWidget.prototype.open.call(this);
+        clearScreen();
+    };
+    highscores_block = new ViewableWidget("highscores-table");
+    highscores_block.open = function(){
+        ViewableWidget.prototype.open.call(this);
+        showTop10Highscores();
+    };
+    notebook = new Notebook({
+        settings: settings_form,
+        custom: custom_form,
+        game: gameWidget,
+        highscores: highscores_block,
+    });
+    notebook.open("game");
     checkForHS();
     player=new playerObj(0,0);
     customOff();
     game_active=false;
-    custom_form.close();
-    settings_form.close();
     custom_box_changed=false;
     settings_box_changed=false;
     maxheight=Math.floor(screen.availHeight/50)*50-300;
@@ -278,25 +313,7 @@ function checkForParemErrors()
 }
 function setGameVisible()
 {
-    document.getElementById("game").style.visibility="visible";
-    document.getElementById("game").style.zIndex=2;
-    custom_form.close();
-    settings_form.close();
-    clearScreen();
-}
-function setCustomBoxVisible()
-{
-    document.getElementById("game").style.visibility="hidden";
-    document.getElementById("game").style.zIndex=1;
-    custom_form.open();
-    settings_form.close();
-}
-function setSettingsBoxVisible()
-{
-    document.getElementById("game").style.visibility="hidden";
-    document.getElementById("game").style.zIndex=1;
-    settings_form.open();
-    custom_form.close();
+    notebook.open("game");
 }
 function customOn()
 {
@@ -316,38 +333,48 @@ function custom()
 
     if (!custom_form.isOpen())
     {
-        game_timer=false;
-        if (game_active)
-        {
-            game_active=false;
-            document.getElementById("score").innerHTML=0;
-        }
-        document.getElementById("time").innerHTML=changeTimeFormat(document.getElementById("custTime").value);
-        setCustomBoxVisible();
-
+        stopGame();
+        notebook.open("custom");
     }
     else
     {
-        setGameVisible();
+        notebook.open("game");
     }
+}
+function stopGame()
+{
+    game_timer=false;
+    if (game_active)
+    {
+        game_active=false;
+        document.getElementById("score").innerHTML=0;
+    }
+    document.getElementById("time").innerHTML=changeTimeFormat(document.getElementById("custTime").value);
 }
 function settings()
 {
 
     if (!settings_form.isOpen())
     {
-        game_timer=false;
-        if (game_active)
-        {
-            game_active=false;
-            document.getElementById("score").innerHTML=0;
-        }
-        document.getElementById("time").innerHTML=changeTimeFormat(document.getElementById("custTime").value);
-        setSettingsBoxVisible();
+        stopGame();
+        notebook.open("settings");
     }
     else
     {
-        setGameVisible();
+        notebook.open("game");
+    }
+}
+function highscores()
+{
+
+    if (!highscores_block.isOpen())
+    {
+        stopGame();
+        notebook.open("highscores");
+    }
+    else
+    {
+        notebook.open("game");
     }
 }
 function resetToDefault()
@@ -515,14 +542,31 @@ function checkForHS()
         user_name="Guest";
     }
     */
-    getscore(function(_user_name, _hs){
-    hs = _hs;
-    user_name = _user_name;
-    document.getElementById("hs").innerHTML=escapeHtml(hs);
-    document.getElementById("user_name").innerHTML=escapeHtml(user_name);
+    getscore(function(_user_name, _hs, all){
+        hs = _hs;
+        user_name = _user_name;
+        document.getElementById("hs").innerHTML=escapeHtml(hs);
+        document.getElementById("user_name").innerHTML=escapeHtml(user_name);
     });
-
 }
+function showTop10Highscores(){
+    getscore(function(_user_name, _hs, array){
+        populateTop10(array);
+    });
+}
+
+function populateTop10(array){
+    var table = document.getElementById("highscores-table");
+    for (var i=1, len=table.rows.length; i<len; i++)
+        table.deleteRow(1);
+    for (var i=0; i<array.length; i++){
+        var row = table.insertRow();
+        row.insertCell().textContent = i+1;
+        row.insertCell().textContent = array[i].name;
+        row.insertCell().textContent = array[i].score;
+    }
+}
+
 //taken from http://shebang.brandonmintern.com/foolproof-html-escaping-in-javascript/
 function escapeHtml(str) {
     var div = document.createElement('div');

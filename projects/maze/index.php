@@ -25,6 +25,7 @@
                 <td><b>Time:</b> <span id="time">02:00</span></td>
                 <td><b>Score:</b> <span id="score">0</span></td>
                 <td><span id="hs_text"><b>Highscore:</b> <span id="hs"></span> (<span id="user_name"></span>) </span></td>
+                <td><button onclick="highscores()" type="button">Show Top 10</button></td>
                 <td><b>Custom Mode:</b> <span id="custom_mode"></span></td>
             </tr>
         </table>
@@ -59,6 +60,15 @@
     </div>
     <div id="gameBoard">
         <canvas id="game" height="300" width="1350"/>
+    </div>
+    <div id="highscores-list">
+    <table id="highscores-table" border=1>
+    <tr>
+        <th>Position</th>
+        <th>Name</th>
+        <th>Score</th>
+    </tr>
+    </table>
     </div>
     </div>
     </body>

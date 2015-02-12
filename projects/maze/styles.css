@@ -22,9 +22,16 @@
     position: absolute;
     margin-top: 60px;
     margin-left: 0px;
+    visibility: hidden;
 }
 
 #mainBar table td{
     padding-right: 10px;
 
+}
+#highscores-list{
+    position: absolute;
+    margin-top: 60px;
+    margin-left: 0px;
+    visibility: hidden;
 }

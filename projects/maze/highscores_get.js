@@ -15,7 +15,7 @@ xmlhttp.onreadystatechange=function()
     {
     var text=xmlhttp.responseText;
     var data = JSON.parse(text);
-    callback(data[0].name, data[0].score);
+    callback(data[0].name, data[0].score, data);
     }
 }
 xmlhttp.open("GET","highscores_display.php",true);
