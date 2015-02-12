@@ -11,11 +11,18 @@ else
   }
 xmlhttp.onreadystatechange=function()
   {
-  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    if (xmlhttp.readyState==4 && xmlhttp.status==200)
     {
-    var text=xmlhttp.responseText;
-    var data = JSON.parse(text);
-    callback(data[0].name, data[0].score, data);
+        var text=xmlhttp.responseText;
+        var data = JSON.parse(text);
+        if (data.length == 0)
+        {
+            callback("", 0, []);
+        }
+        else
+        {
+            callback(data[0].name, data[0].score, data);
+        }
     }
 }
 xmlhttp.open("GET","highscores_display.php",true);
