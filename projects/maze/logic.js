@@ -10,6 +10,7 @@ var score,bonus;
 var board;
 var player;
 var game_active;
+var scoreToBeat;
 
 function ViewableWidget(id){
     this.id = id;
@@ -570,7 +571,6 @@ function gameOver()
     game_timer=false;
     game_active=false;
     clearScreen();
-    showLoading();
     getscore(function(_user_name, _hs, all){
         if (((all.length == 0) || (score>=all[all.length-1].score) || (all.length < 10)) && !customized)
         {
@@ -586,11 +586,13 @@ function gameOver()
         }
     });
 }
-function showLoading()
-{
-    ctx.fillStyle = "blue";
-    ctx.font = "bold 16px Arial";
-    ctx.fillText("Loading...", 100, 100);
+function getScoreToBeat(){
+    getscore(function(_user_name, _hs, all){
+        if (all.length == 0)
+            scoreToBeat = 0;
+        else
+            scoreToBeat = all[all.length-1].score;
+    });
 }
 function maze()
 {
