@@ -73,7 +73,8 @@ $result = $conn->query($sql);
 $res = array();
 if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
-           array_push($res, $row);
+        $row["score"] = (int) $row["score"];
+        array_push($res, $row);
     }
 }
 return $res;
