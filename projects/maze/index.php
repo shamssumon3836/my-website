@@ -5,11 +5,6 @@
         <? include '../../head.php'; ?>
 <link rel="stylesheet" type="text/css" href="../../styles.css">
 <link rel="stylesheet" type="text/css" href="./styles.css">
-<script src="http://crypto-js.googlecode.com/svn/tags/3.0.2/build/rollups/md5.js"></script>
-         <script src="highscores_submit.js"></script>
-         <script src="highscores_get.js"></script>
-        <script src="logic.js"></script>
-
     </head>
 
     <body onload="onLoad();" onkeydown="keyDown(event);">
@@ -71,5 +66,10 @@
     </table>
     </div>
     </div>
+    <script src="../../js/md5.js"></script>
+         <script src="highscores_submit.js"></script>
+         <script src="highscores_get.js"></script>
+        <script src="logic.js"></script>
+
     </body>
 </html>
