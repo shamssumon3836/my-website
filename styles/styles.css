@@ -1,0 +1,83 @@
+/* line 1, /home/david/Documents/Programming/Website/styles/styles.scss */
+* {
+  font-family: "Arial", sans-serif; }
+
+/* line 5, /home/david/Documents/Programming/Website/styles/styles.scss */
+table tr.odd td, tr.odd th {
+  background-color: rgba(0, 100, 100, 0.3); }
+
+/* line 9, /home/david/Documents/Programming/Website/styles/styles.scss */
+table tr.even, tr.even th {
+  background-color: white; }
+
+/* line 13, /home/david/Documents/Programming/Website/styles/styles.scss */
+table.layout_table {
+  border-spacing: 10px;
+  border-collapse: separate; }
+
+/* line 18, /home/david/Documents/Programming/Website/styles/styles.scss */
+a {
+  color: #003232; }
+
+/* line 22, /home/david/Documents/Programming/Website/styles/styles.scss */
+#projects_list {
+  vertical-align: top;
+  padding: 0px 0px 0px 0px; }
+
+/* line 27, /home/david/Documents/Programming/Website/styles/styles.scss */
+#projects_list li {
+  list-style-type: none;
+  margin: 0 0 10px 0; }
+
+/* line 32, /home/david/Documents/Programming/Website/styles/styles.scss */
+#content {
+  position: absolute;
+  margin-top: 50px;
+  margin-left: 0px;
+  width: 1000px; }
+
+/* line 39, /home/david/Documents/Programming/Website/styles/styles.scss */
+#navigation_bar {
+  position: absolute;
+  margin-top: 0px;
+  margin-left: 0px; }
+
+/* line 45, /home/david/Documents/Programming/Website/styles/styles.scss */
+#navigation_bar ul {
+  margin-left: 0px;
+  padding-left: 0px; }
+
+/* line 51, /home/david/Documents/Programming/Website/styles/styles.scss */
+.error {
+  color: red; }
+
+/* line 55, /home/david/Documents/Programming/Website/styles/styles.scss */
+#navigation_bar li {
+  display: inline; }
+
+/* line 59, /home/david/Documents/Programming/Website/styles/styles.scss */
+#navigation_bar li {
+  float: left; }
+
+/* line 63, /home/david/Documents/Programming/Website/styles/styles.scss */
+#navigation_bar a {
+  display: block;
+  width: 100px; }
+
+/* line 69, /home/david/Documents/Programming/Website/styles/styles.scss */
+#navigation_bar a:link, #navigation_bar a:visited {
+  font-weight: bold;
+  color: #FFFFFF;
+  background-color: #006464;
+  text-align: center;
+  padding: 4px;
+  text-decoration: none;
+  text-transform: uppercase; }
+
+/* line 81, /home/david/Documents/Programming/Website/styles/styles.scss */
+.user_form {
+  border: 1px solid #000000;
+  width: 510px;
+  padding: 10px 10px 10px 10px; }
+
+/*# sourceMappingURL=styles.css.map */
