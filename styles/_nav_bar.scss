@@ -1,0 +1,37 @@
+#navigation_bar{
+    position: absolute;
+    margin-top: 0px;
+    margin-left: 0px;
+}
+
+#navigation_bar ul{
+    margin-left: 0px;
+    padding-left: 0px;
+}
+
+
+#navigation_bar li{
+    display: inline;
+}
+
+#navigation_bar li{
+    float: left;
+}
+
+#navigation_bar a{
+    display: block;
+    width: 100px;
+}
+
+
+#navigation_bar a:link, #navigation_bar a:visited
+{
+font-weight:bold;
+color:#FFFFFF;
+background-color:rgba(0,100,100,100);
+text-align:center;
+padding:4px;
+text-decoration:none;
+text-transform:uppercase;
+}
+
