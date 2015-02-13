@@ -530,24 +530,16 @@ function changeTimeFormat(t)
 }
 function checkForHS()
 {
-    /*
-    if (localStorage.maze_user_name!=undefined)
-    {
-        hs=localStorage.maze_hs;
-        user_name=localStorage.maze_user_name;
-    }
-    else
-    {
-        hs=0;
-        user_name="Guest";
-    }
-    */
     getscore(function(_user_name, _hs, all){
-        hs = _hs;
-        user_name = _user_name;
-        document.getElementById("hs").innerHTML=escapeHtml(hs);
-        document.getElementById("user_name").innerHTML=escapeHtml(user_name);
+        setHS(_hs, _user_name);
     });
+}
+function setHS(_hs, _user_name)
+{
+    hs = _hs;
+    user_name = _user_name;
+    document.getElementById("hs").innerHTML=escapeHtml(hs);
+    document.getElementById("user_name").innerHTML=escapeHtml(user_name);
 }
 function showTop10Highscores(){
     getscore(function(_user_name, _hs, array){
@@ -575,23 +567,22 @@ function escapeHtml(str) {
 };
 function gameOver()
 {
-    game_timer=false
-    if (score>hs && !customized)
-    {
-        user_name=prompt("You beat the previous highscore!\nPlease enter your user name:");
-        hs=score;
-        hash=CryptoJS.MD5(user_name + " " + hs + " #ecc>`r:fP");
-        document.getElementById("hs").innerHTML=escapeHtml(hs);
-        document.getElementById("user_name").innerHTML=escapeHtml(user_name);
-        localStorage.maze_hs=hs;
-        localStorage.maze_user_name=user_name;
-        submit_score(user_name, hs, hash);
-    }
-    else
-    {
-        alert("Time's up!\nYou scored "+score+" points.");
-    }
+    game_timer=false;
     game_active=false;
+    getscore(function(_user_name, _hs, all){
+        if (score>=all[all.length-1].score && !customized)
+        {
+            user_name=prompt("Your score is in the top 10!\nPlease enter your user name:");
+            hash=CryptoJS.MD5(user_name + " " + score + " #ecc>`r:fP");
+            submit_score(user_name, score, hash);
+            if (score > _hs)
+                setHS(score, user_name);
+        }
+        else
+        {
+            alert("Time's up!\nYou scored "+score+" points.");
+        }
+    });
 }
 function maze()
 {
