@@ -570,7 +570,7 @@ function gameOver()
     game_timer=false;
     game_active=false;
     getscore(function(_user_name, _hs, all){
-        if (score>=all[all.length-1].score && !customized)
+        if (((all.length == 0) || (score>=all[all.length-1].score) || (all.length < 10)) && !customized)
         {
             user_name=prompt("Your score is in the top 10!\nPlease enter your user name:");
             hash=CryptoJS.MD5(user_name + " " + score + " #ecc>`r:fP");
