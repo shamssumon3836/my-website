@@ -16,7 +16,7 @@ table.layout_table{
 }
 
 a{
-   color: rgba(0,50,50,100);
+   color: rgba(0,50,50,1);
 }
 
 #projects_list{
@@ -70,7 +70,7 @@ a{
 {
 font-weight:bold;
 color:#FFFFFF;
-background-color:rgba(0,100,100,100);
+background-color:rgba(0,100,100,1);
 text-align:center;
 padding:4px;
 text-decoration:none;
