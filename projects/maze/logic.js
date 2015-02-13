@@ -476,6 +476,7 @@ function cancelButtonSettings()
 }
 function beginGame()
 {
+    getScoreToBeat();
     setGameVisible();
     game_active=true;
     score=0;
@@ -570,21 +571,18 @@ function gameOver()
 {
     game_timer=false;
     game_active=false;
-    clearScreen();
-    getscore(function(_user_name, _hs, all){
-        if (((all.length == 0) || (score>=all[all.length-1].score) || (all.length < 10)) && !customized)
-        {
-            user_name=prompt("Your score is in the top 10!\nPlease enter your user name:");
-            hash=CryptoJS.MD5(user_name + " " + score + " #ecc>`r:fP");
-            submit_score(user_name, score, hash);
-            if (score > _hs)
-                setHS(score, user_name);
-        }
-        else
-        {
-            alert("Time's up!\nYou scored "+score+" points.");
-        }
-    });
+    if (score > scoreToBeat && !customized)
+    {
+        user_name=prompt("Your score is in the top 10!\nPlease enter your user name:");
+        hash=CryptoJS.MD5(user_name + " " + score + " #ecc>`r:fP");
+        submit_score(user_name, score, hash);
+        if (score > hs)
+            setHS(score, user_name);
+    }
+    else
+    {
+        alert("Time's up!\nYou scored "+score+" points.");
+    }
 }
 function getScoreToBeat(){
     getscore(function(_user_name, _hs, all){
