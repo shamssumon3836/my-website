@@ -2,7 +2,7 @@
 <html>
 <head>
 <? include 'head.php'; ?>
-<link rel="stylesheet" type="text/css" href="styles.css">
+<link rel="stylesheet" type="text/css" href="styles/styles.css">
 <meta charset="UTF-8">
 <title>About me</title>
 </head>

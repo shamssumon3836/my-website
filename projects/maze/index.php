@@ -3,7 +3,7 @@
     <head>
         <title>Maze game</title>
         <? include '../../head.php'; ?>
-<link rel="stylesheet" type="text/css" href="../../styles.css">
+<link rel="stylesheet" type="text/css" href="../../styles/styles.css">
 <link rel="stylesheet" type="text/css" href="./styles.css">
     </head>
 

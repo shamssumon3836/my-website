@@ -2,8 +2,8 @@
 <html>
 <head>
 <? include 'head.php'; ?>
-<title>David's Website</title>
 <link rel="stylesheet" type="text/css" href="styles/styles.css">
+<title>David's Website</title>
 </head>
 <body>
 <?
