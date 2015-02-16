@@ -442,4 +442,10 @@ a {
   width: 510px;
   padding: 10px 10px 10px 10px; }
 
+/* line 53, /home/david/Documents/Programming/Website/styles/styles.scss */
+#feed {
+  position: absolute;
+  margin-top: 50px;
+  margin-left: 500px; }
+
 /*# sourceMappingURL=styles.css.map */
