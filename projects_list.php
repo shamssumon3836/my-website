@@ -17,7 +17,8 @@ function initialize() {
       for (var i = 0; i < result.feed.entries.length; i++) {
         var entry = result.feed.entries[i];
         var div = document.createElement("div");
-        div.innerHTML = entry.content;
+        var content = entry.content.replace(/a href="\//g, 'a href="http://github.com/')
+        div.innerHTML = content;
         container.appendChild(div);
       }
     }
