@@ -361,30 +361,24 @@ td, th {
   padding: 0; }
 
 /* line 1, /home/david/Documents/Programming/Website/styles/nav_bar */
-#navigation_bar {
-  position: absolute;
-  margin-top: 0px;
-  margin-left: 0px; }
-
-/* line 7, /home/david/Documents/Programming/Website/styles/nav_bar */
 #navigation_bar ul {
   margin-left: 0px;
   padding-left: 0px; }
 
-/* line 13, /home/david/Documents/Programming/Website/styles/nav_bar */
+/* line 7, /home/david/Documents/Programming/Website/styles/nav_bar */
 #navigation_bar li {
   display: inline; }
 
-/* line 17, /home/david/Documents/Programming/Website/styles/nav_bar */
+/* line 11, /home/david/Documents/Programming/Website/styles/nav_bar */
 #navigation_bar li {
   float: left; }
 
-/* line 21, /home/david/Documents/Programming/Website/styles/nav_bar */
+/* line 15, /home/david/Documents/Programming/Website/styles/nav_bar */
 #navigation_bar a {
   display: block;
   width: 100px; }
 
-/* line 27, /home/david/Documents/Programming/Website/styles/nav_bar */
+/* line 21, /home/david/Documents/Programming/Website/styles/nav_bar */
 #navigation_bar a:link, #navigation_bar a:visited {
   font-weight: bold;
   color: #FFFFFF;
@@ -427,27 +421,19 @@ a {
 
 /* line 35, /home/david/Documents/Programming/Website/styles/styles.scss */
 #content {
-  position: absolute;
-  margin-top: 50px;
-  margin-left: 0px;
   width: 1000px; }
 
-/* line 42, /home/david/Documents/Programming/Website/styles/styles.scss */
+/* line 39, /home/david/Documents/Programming/Website/styles/styles.scss */
 .error {
   color: red; }
 
-/* line 47, /home/david/Documents/Programming/Website/styles/styles.scss */
+/* line 44, /home/david/Documents/Programming/Website/styles/styles.scss */
 .user_form {
   border: 1px solid #000000;
   width: 510px;
   padding: 10px 10px 10px 10px; }
 
-/* line 53, /home/david/Documents/Programming/Website/styles/styles.scss */
-#github-feed-with-title {
-  position: absolute;
-  margin-top: 200px; }
-
-/* line 58, /home/david/Documents/Programming/Website/styles/styles.scss */
+/* line 50, /home/david/Documents/Programming/Website/styles/styles.scss */
 .feed {
   height: 200px;
   width: 500px;
