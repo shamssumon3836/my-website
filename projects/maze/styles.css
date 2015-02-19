@@ -1,17 +1,7 @@
-#mainBar{
-    position: absolute;
-    margin-top: 0px;
-    margin-left: 0px;
-}
-
 .form{
     padding: 0px 10px 0px 10px;
-    position: absolute;
-    margin-top: 60px;
-    margin-left: 0px;
     background-color: white;
-    visibility: hidden;
-    border: solid black 2px;
+    width: 500px;
 }
 
 .form table td{
@@ -19,9 +9,6 @@
     padding-bottom: 7px;
 }
 #gameBoard{
-    position: absolute;
-    margin-top: 60px;
-    margin-left: 0px;
     visibility: hidden;
 }
 
@@ -29,9 +16,12 @@
     padding-right: 10px;
 
 }
-#highscores-list{
-    position: absolute;
-    margin-top: 60px;
-    margin-left: 0px;
+#highscores-table{
     visibility: hidden;
+    border: none;
+}
+
+.form, #highscores-table, #gameBoard{
+    padding-top: 10px;
+    padding-left: 10px;
 }

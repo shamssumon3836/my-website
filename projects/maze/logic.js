@@ -19,11 +19,13 @@ function ViewableWidget(id){
 }
 ViewableWidget.prototype.open = function(){
     document.getElementById(this.id).style.visibility="visible";
+    document.getElementById(this.id).style.display="block";
     document.getElementById(this.id).style.zIndex=2;
     this._open = true;
 }
 ViewableWidget.prototype.close = function(){
     document.getElementById(this.id).style.visibility="hidden";
+    document.getElementById(this.id).style.display="none";
     document.getElementById(this.id).style.zIndex=1;
     this._open = false;
 }
