@@ -10,7 +10,6 @@
     <body onload="onLoad();" onkeydown="keyDown(event);">
 <?include '../../nav_bar.php'?>
 <div id="content">
-    <p id="debug"></p>
     <div id="mainBar">
         <table>
             <tr>
