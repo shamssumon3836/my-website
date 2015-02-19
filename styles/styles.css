@@ -362,24 +362,19 @@ td, th {
 
 /* line 1, /home/david/Documents/Programming/Website/styles/nav_bar */
 #navigation_bar ul {
-  margin-left: 0px;
-  padding-left: 0px; }
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; }
 
-/* line 7, /home/david/Documents/Programming/Website/styles/nav_bar */
-#navigation_bar li {
-  display: inline; }
-
-/* line 11, /home/david/Documents/Programming/Website/styles/nav_bar */
+/* line 8, /home/david/Documents/Programming/Website/styles/nav_bar */
 #navigation_bar li {
   float: left; }
 
-/* line 15, /home/david/Documents/Programming/Website/styles/nav_bar */
-#navigation_bar a {
-  display: block;
-  width: 100px; }
-
-/* line 21, /home/david/Documents/Programming/Website/styles/nav_bar */
+/* line 12, /home/david/Documents/Programming/Website/styles/nav_bar */
 #navigation_bar a:link, #navigation_bar a:visited {
+  display: block;
+  width: 120px;
   font-weight: bold;
   color: #FFFFFF;
   background-color: #006464;
@@ -387,6 +382,10 @@ td, th {
   padding: 4px;
   text-decoration: none;
   text-transform: uppercase; }
+
+/* line 24, /home/david/Documents/Programming/Website/styles/nav_bar */
+#navigation_bar a:hover, #navigation_bar a:active {
+  background-color: rgba(0, 100, 100, 0.8); }
 
 /* line 4, /home/david/Documents/Programming/Website/styles/styles.scss */
 * {
