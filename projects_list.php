@@ -13,7 +13,7 @@ function initialize() {
   var feed = new google.feeds.Feed("http://github.com/d1618033.atom");
   feed.load(function(result) {
     if (!result.error) {
-      var container = document.getElementById("feed");
+      var container = document.getElementById("github-feed");
       for (var i = 0; i < result.feed.entries.length; i++) {
         var entry = result.feed.entries[i];
         var div = document.createElement("div");
@@ -38,8 +38,10 @@ google.setOnLoadCallback(initialize);
 <li><a href="/projects/maze/index.php">Maze Game</a></li>
 </ul>
 </div>
-<div id="feed">
+<div id="github-feed-with-title">
 <h3>GitHub feed</h3>
+<div class="feed" id="github-feed">
+</div>
 </div>
 </body>
 </html>

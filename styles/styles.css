@@ -443,9 +443,14 @@ a {
   padding: 10px 10px 10px 10px; }
 
 /* line 53, /home/david/Documents/Programming/Website/styles/styles.scss */
-#feed {
+#github-feed-with-title {
   position: absolute;
-  margin-top: 50px;
-  margin-left: 500px; }
+  margin-top: 200px; }
+
+/* line 58, /home/david/Documents/Programming/Website/styles/styles.scss */
+.feed {
+  height: 200px;
+  width: 500px;
+  overflow: scroll; }
 
 /*# sourceMappingURL=styles.css.map */
