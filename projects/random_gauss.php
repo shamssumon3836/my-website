@@ -3,7 +3,7 @@
 <head>
 <? include '../head.php'; ?>
 <title>Random Gaussian Generator</title>
-<link rel="stylesheet" type="text/css" href="../styles.css">
+<link rel="stylesheet" type="text/css" href="../styles/styles.css">
 <style type="text/css">
 
 

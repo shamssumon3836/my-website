@@ -3,7 +3,7 @@
 <head>
 <? include '../head.php'; ?>
 <title>Recurrence Relation Solver</title>
-<link rel="stylesheet" type="text/css" href="../styles.css">
+<link rel="stylesheet" type="text/css" href="../styles/styles.css">
 </head>
 <body>
 <?include '../nav_bar.php'?>
