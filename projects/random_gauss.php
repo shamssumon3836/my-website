@@ -6,29 +6,16 @@
 <link rel="stylesheet" type="text/css" href="../styles/styles.css">
 <style type="text/css">
 
-
-
-#gauss_form{
-    position: absolute;
-    margin-top: 0px;
-}
-#data_and_hist{
-    position: absolute;
-    margin-top: 85px;
+#hist{
+    width: 700px;
+    height: 350px;
+    margin-left: 25%;
 }
 #data{
-    position: absolute;
-    margin-left: 0px;
-    margin-top: 95px;
+    float: left;
+    width: 100%;
 }
-#hist{
-    position: absolute;
-    margin-left: 200px;
-    margin-top: 10px;
-    padding-top: 35px;
-    width: 900px;
-    height: 450px;
-}
+
 </style>
 <script>
 function RandomGauss(mu, sigma)
@@ -114,6 +101,7 @@ function generateTable(array, id)
           title: 'Histogram of data',
           legend: { position: 'none' },
           colors: ['#009696'],
+          chartArea: {'width': '100%', 'height': '80%'},
         };
 
         var chart = new google.visualization.Histogram(document.getElementById('hist'));
@@ -136,13 +124,11 @@ Number of random gaussians to generate: <input id="n_error" name="num" type="num
 </p>
 <input type="submit" value="Generate" onclick="onClickGenerate();">
 </div>
-<div id="data_and_hist">
 <div id="data">
 <table border=1 id="data_table">
 </table>
 </div>
 <div id="hist"></div>
-</div>
 </div>
 </body>
 </html>
