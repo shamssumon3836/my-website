@@ -38,7 +38,7 @@ google.setOnLoadCallback(initialize);
 <li><a href="/projects/maze/index.php">Maze Game</a></li>
 </ul>
 <div id="github-feed-with-title">
-<h3>GitHub feed</h3>
+<p>Here's my <a href="https://github.com/d1618033">github</a> feed:</p>
 <div class="feed" id="github-feed">
 </div>
 </div>
