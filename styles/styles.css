@@ -421,19 +421,20 @@ a {
 /* line 35, /home/david/Documents/Programming/Website/styles/styles.scss */
 #content {
   width: 1000px;
-  padding: 30px 0px 0px 0px; }
+  margin-top: 30px;
+  margin-left: 10px; }
 
-/* line 40, /home/david/Documents/Programming/Website/styles/styles.scss */
+/* line 41, /home/david/Documents/Programming/Website/styles/styles.scss */
 .error {
   color: red; }
 
-/* line 45, /home/david/Documents/Programming/Website/styles/styles.scss */
+/* line 46, /home/david/Documents/Programming/Website/styles/styles.scss */
 .user_form {
   border: 1px solid #000000;
   width: 510px;
   padding: 10px 10px 10px 10px; }
 
-/* line 51, /home/david/Documents/Programming/Website/styles/styles.scss */
+/* line 52, /home/david/Documents/Programming/Website/styles/styles.scss */
 .feed {
   height: 200px;
   width: 500px;
