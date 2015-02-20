@@ -37,10 +37,10 @@ google.setOnLoadCallback(initialize);
 <li><a href="/projects/random_gauss.php">Random Gaussian Generator</a></li>
 <li><a href="/projects/maze/index.php">Maze Game</a></li>
 </ul>
-</div>
 <div id="github-feed-with-title">
 <h3>GitHub feed</h3>
 <div class="feed" id="github-feed">
+</div>
 </div>
 </div>
 </body>
